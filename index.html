@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فاست لينك - Fast Link</title>
+    
+    <!-- استدعاء مكتبة Tailwind CSS للتصميم -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- استدعاء مكتبة أيقونات Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- استدعاء خط تجوال العربي -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        /* تخصيص شريط التمرير */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626; 
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-900 text-white selection:bg-red-500 selection:text-white">
+
+    <!-- رأس الصفحة -->
+    <header class="relative bg-gradient-to-b from-slate-800 to-slate-900 shadow-xl border-b border-slate-700">
+        <div class="container mx-auto px-4 py-8 flex flex-col items-center text-center">
+            <div class="mb-4 p-3 bg-red-600 rounded-full shadow-lg shadow-red-600/20 animate-pulse">
+                <i data-lucide="tv" class="w-12 h-12 text-white"></i>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black mb-2 tracking-tight">
+                فاست <span class="text-red-500">لينك</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl font-medium mb-6">
+                كافة أنواع الاشتراكات من الوكيل الحصري
+            </p>
+            
+            <!-- شريط البحث -->
+            <div class="relative w-full max-w-md">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="ابحث عن التطبيق..."
+                    class="w-full py-3 px-5 pr-12 rounded-full bg-slate-800 border border-slate-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 outline-none transition-all placeholder-slate-500"
+                />
+                <i data-lucide="search" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- منطقة عرض التطبيقات -->
+    <main class="container mx-auto px-4 py-12">
+        <div id="appsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <!-- سيتم ملء التطبيقات هنا بواسطة JavaScript -->
+        </div>
+        
+        <!-- رسالة تظهر عند عدم وجود نتائج -->
+        <div id="noResults" class="hidden text-center py-20 text-slate-500">
+            <p class="text-xl">لا يوجد تطبيق بهذا الاسم</p>
+        </div>
+    </main>
+
+    <!-- التذييل ومعلومات التواصل -->
+    <footer class="bg-slate-950 border-t border-slate-800 pt-12 pb-6">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-6 text-slate-200">للتواصل والاشتراك</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                    
+                    <a href="https://wa.me/9665380632622" target="_blank" class="flex items-center gap-3 bg-green-600 hover:bg-green-700 px-6 py-3 rounded-xl transition-colors w-full md:w-auto justify-center group">
+                        <i data-lucide="message-circle" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                        <div class="text-right">
+                            <p class="text-xs text-green-100 opacity-80">راسلنا على واتساب</p>
+                            <p class="font-bold text-lg" dir="ltr">053 806 32622</p>
+                        </div>
+                    </a>
+
+                    <a href="tel:05313122800" class="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl transition-colors w-full md:w-auto justify-center group">
+                        <i data-lucide="phone" class="w-6 h-6 text-red-500 group-hover:rotate-12 transition-transform"></i>
+                        <div class="text-right">
+                            <p class="text-xs text-slate-400">اتصل بنا مباشرة</p>
+                            <p class="font-bold text-lg" dir="ltr">053 131 22800</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="text-slate-600 text-sm mt-8 border-t border-slate-900 pt-6">
+                <p>© 2024 فاست لينك - جميع الحقوق محفوظة</p>
+                <p class="text-xs mt-1">أفضل خدمة IPTV في المملكة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // قاعدة بيانات التطبيقات
+        // يمكنك تغيير الروابط بوضع الرابط الحقيقي مكان علامة #
+        const appsData = [
+            {
+                id: 1,
+                name: "Fast Link TV",
+                description: "تطبيق الوكيل الرسمي",
+                iconType: "lucide", // نوع الأيقونة: من المكتبة
+                iconValue: "tv",
+                color: "bg-gradient-to-br from-red-900 to-black",
+                downloadUrl: "https://5311.uk/apps/FastLinkTv8.apk",
+                img: `./imgs/fastlinktv.png`,
+            },
+            {
+                id: 2,
+                name: "Look 4K",
+                description: "مشاهدة بجودة عالية",
+                iconType: "lucide",
+                iconValue: "play",
+                color: "bg-gradient-to-br from-blue-600 to-blue-900",
+                downloadUrl: "https://5311.uk/apps/lookpro.apk",
+                img: `./imgs/LOOK4KPRO.png`,
+            },
+            {
+                id: 3,
+                name: "Shamna",
+                description: "شامنا TV",
+                iconType: "text", // نوع الأيقونة: نص
+                iconValue: "ش",
+                color: "bg-white text-red-600 border-2 border-red-600",
+                textColor: "text-red-600",
+                downloadUrl: "https://5311.uk/apps/ultra.apk",
+                img: `./imgs/shultrar.png`,
+            },
+            {
+                id: 4,
+                name: "MyBox",
+                description: "ترفيه بلا حدود",
+                iconType: "text",
+                iconValue: "BOX",
+                color: "bg-white text-orange-500",
+                textColor: "text-orange-600",
+                textSize: "text-xl",
+                downloadUrl: "https://5311.uk/apps/Mybox Iptv-mac.apk",
+                img: `./imgs/mybox.png`,
+            },
+            // {
+            //     id: 5,
+            //     name: "IPTV Smarters",
+            //     description: "المشغل الأشهر",
+            //     iconType: "lucide",
+            //     iconValue: "play",
+            //     color: "bg-purple-700",
+            //     downloadUrl: "https://5311.uk/apps/"
+            // },
+            {
+                id: 6,
+                name: "Pablo Red",
+                description: "أفلام ومسلسلات",
+                iconType: "text",
+                iconValue: "P",
+                color: "bg-red-700",
+                downloadUrl: "https://5311.uk/apps/pablo-tv-red_3.1.apk",
+                img: `./imgs/pablo.png`,
+            },
+            {
+                id: 7,
+                name: "Lion Speed",
+                description: "سرعة وثبات",
+                iconType: "lucide",
+                iconValue: "wifi",
+                color: "bg-blue-100 text-blue-800",
+                textColor: "text-blue-800",
+                downloadUrl: "https://5311.uk/apps/lionspeed.apk",
+                img: `./imgs/lionspeed.png`,
+            },
+            {
+                id: 8,
+                name: "Android TV 33",
+                description: "للشاشات الذكية",
+                iconType: "lucide",
+                iconValue: "smartphone",
+                color: "bg-green-600",
+                downloadUrl: "https://5311.uk/apps/a33tv.apk",
+                img: `./imgs/annd33.png`,
+            },
+            {
+                id: 9,
+                name: "StarSat Plus",
+                description: "ستار سات بلس",
+                iconType: "lucide",
+                iconValue: "globe",
+                color: "bg-slate-800 border border-slate-600",
+                downloadUrl: "https://5311.uk/apps/StarSatPLUS_3.2.apk",
+                img: `./imgs/startsatplus.png`,
+            },
+            {
+                id: 10,
+                name: "Dita 4K",
+                description: "جودة 4K حقيقية",
+                iconType: "lucide",
+                iconValue: "play",
+                extraClasses: "text-yellow-400",
+                color: "bg-white",
+                textColor: "text-slate-900",
+                downloadUrl: "https://5311.uk/apps/dltav_6_2.apk",
+                img: `./imgs/dlta4k.png`,
+            },
+            {
+                id: 11,
+                name: "Blue 4K",
+                description: "الأزرق المميز",
+                iconType: "lucide",
+                iconValue: "tv",
+                extraClasses: "text-blue-600",
+                color: "bg-yellow-400",
+                textColor: "text-blue-800",
+                downloadUrl: "https://5311.uk/apps/Blue4kpro.apk",
+                img: `./imgs/blue4kpro.png`,
+            },
+            // {
+            //     id: 12,
+            //     name: "Zain 4K",
+            //     description: "زين 4K",
+            //     iconType: "lucide",
+            //     iconValue: "play",
+            //     color: "bg-red-900",
+            //     downloadUrl: "https://5311.uk/apps/"
+            // },
+            // {
+            //     id: 13,
+            //     name: "IPTV+",
+            //     description: "الجيل الجديد",
+            //     iconType: "text",
+            //     iconValue: "+",
+            //     color: "bg-white border border-gray-200",
+            //     textColor: "text-red-600",
+            //     downloadUrl: "https://5311.uk/apps/"
+            // },
+            {
+                id: 14,
+                name: "MyHD New",
+                description: "الإصدار الجديد",
+                iconType: "lucide",
+                iconValue: "tv",
+                extraClasses: "text-pink-500",
+                color: "bg-white",
+                textColor: "text-slate-800",
+                downloadUrl: "https://5311.uk/apps/MYHD-LION.apk",
+                img: `./imgs/MYHDN.png`,
+            },
+            {
+                id: 15,
+                name: "YouTube",
+                description: "منصة الفيديو العالمية",
+                iconType: "lucide",
+                iconValue: "youtube",
+                color: "bg-red-600",
+                textColor: "text-white",
+                downloadUrl: "https://5311.uk/apps/YouTubep.apk"
+            }
+        ];
+
+        const grid = document.getElementById('appsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+
+        // دالة لإنشاء أيقونة التطبيق حسب النوع
+        function getIconHtml(app) {
+            if (app.iconType === 'lucide') {
+                return `<i data-lucide="${app.iconValue}" class="w-10 h-10 ${app.extraClasses || ''}"></i>`;
+            } else {
+                return `<span class="font-bold ${app.textSize || 'text-3xl'}">${app.iconValue}</span>`;
+            }
+        }
+
+        // دالة رسم التطبيقات في الصفحة
+        function renderApps(apps) {
+            grid.innerHTML = ''; // مسح المحتوى الحالي
+            
+            if (apps.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                
+                apps.forEach(app => {
+                    const card = document.createElement('div');
+                    card.className = `group relative bg-slate-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-red-900/20 transition-all duration-300 transform hover:-translate-y-1 border border-slate-700`;
+                    
+                    const textColorClass = app.textColor || 'text-white';
+
+                    // التحقق مما إذا كان هناك صورة مخصصة للتطبيق
+                    let visualContent;
+                    if (app.img) {
+                        // إذا وجدت الصورة، اعرضها
+                        visualContent = `
+                            <img src="${app.img}" alt="${app.name}" 
+                                 class="max-h-[80%] max-w-[80%] object-contain drop-shadow-md transform group-hover:scale-110 transition-transform duration-300"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" 
+                            />
+                            <!-- عنصر احتياطي يظهر في حال فشل تحميل الصورة -->
+                            <div style="display:none;" class="transform group-hover:scale-110 transition-transform duration-300">
+                                ${getIconHtml(app)}
+                            </div>
+                        `;
+                    } else {
+                        // إذا لم توجد صورة، اعرض الأيقونة
+                        visualContent = `
+                            <div class="transform group-hover:scale-110 transition-transform duration-300">
+                                ${getIconHtml(app)}
+                            </div>
+                        `;
+                    }
+
+                    card.innerHTML = `
+                        <div class="h-32 flex items-center justify-center ${app.color} ${textColorClass}">
+                            ${visualContent}
+                        </div>
+                        <div class="p-5 flex flex-col items-center text-center">
+                            <h3 class="font-bold text-lg mb-1">${app.name}</h3>
+                            <p class="text-xs text-slate-400 mb-4">${app.description}</p>
+                            <a href="${app.downloadUrl}" target="_blank" class="w-full flex items-center justify-center gap-2 bg-slate-700 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors duration-300 font-medium text-sm group-hover:bg-red-600">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                                تحميل التطبيق
+                            </a>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+            // إعادة تهيئة الأيقونات لتظهر
+            lucide.createIcons();
+        }
+
+        // تشغيل دالة البحث عند الكتابة
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = appsData.filter(app => 
+                app.name.toLowerCase().includes(term)
+            );
+            renderApps(filtered);
+        });
+
+        // التشغيل الأولي عند فتح الصفحة
+        renderApps(appsData);
+
+    </script>
+</body>
+</html>
