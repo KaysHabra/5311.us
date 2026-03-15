@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
@@ -10,16 +11,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
-        body { 
+        body {
             font-family: 'Tajawal', sans-serif;
-            background-color: #0f172a; /* fallback for older browsers */
+            background-color: #0f172a;
+            /* fallback for older browsers */
         }
-        
+
         /* تحسين التمرير للتلفزيونات */
-        ::-webkit-scrollbar { width: 12px; }
-        ::-webkit-scrollbar-track { background: #1e293b; }
-        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 6px; }
-        ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
 
         /* تحسين شبكة التطبيقات للتلفزيون */
         .apps-grid {
@@ -70,9 +84,18 @@
 
         /* تحسين حجم الخطوط للتلفزيون */
         @media (min-width: 1280px) {
-            .app-title { font-size: 1.2rem; }
-            .app-description { font-size: 0.9rem; }
-            .app-button { font-size: 1.1rem; padding: 0.75rem; }
+            .app-title {
+                font-size: 1.2rem;
+            }
+
+            .app-description {
+                font-size: 0.9rem;
+            }
+
+            .app-button {
+                font-size: 1.1rem;
+                padding: 0.75rem;
+            }
         }
 
         /* تحسين شريط البحث */
@@ -126,6 +149,7 @@
         }
     </style>
 </head>
+
 <body class="min-h-screen bg-slate-900 text-white selection:bg-red-500 selection:text-white tv-friendly">
 
     <header class="relative bg-gradient-to-b from-slate-800 to-slate-900 shadow-xl border-b border-slate-700">
@@ -137,11 +161,11 @@
                 فاست <span class="text-red-500">لينك</span>
             </h1>
             <p class="text-slate-400 text-xl md:text-2xl font-medium mb-6">كافة أنواع الاشتراكات من الوكيل الحصري</p>
-            
+
             <div class="relative w-full max-w-2xl">
-                <input type="text" id="searchInput" placeholder="ابحث عن التطبيق..."
-                    class="search-box" />
-                <i data-lucide="search" class="absolute right-6 top-1/2 transform -translate-y-1/2 text-slate-400 w-6 h-6"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن التطبيق..." class="search-box" />
+                <i data-lucide="search"
+                    class="absolute right-6 top-1/2 transform -translate-y-1/2 text-slate-400 w-6 h-6"></i>
             </div>
         </div>
     </header>
@@ -161,7 +185,8 @@
             <div class="mb-8">
                 <h2 class="text-3xl font-bold mb-6 text-slate-200">للتواصل والاشتراك</h2>
                 <div class="flex flex-wrap items-center justify-center gap-4">
-                    <a href="https://wa.me/9665380632622" target="_blank" class="contact-button bg-green-600 hover:bg-green-700">
+                    <a href="https://wa.me/9665380632622" target="_blank"
+                        class="contact-button bg-green-600 hover:bg-green-700">
                         <i data-lucide="message-circle" class="w-7 h-7"></i>
                         <div class="text-right">
                             <p class="text-xs text-green-100 opacity-80">واتساب</p>
@@ -177,7 +202,8 @@
                     </a>
                 </div>
             </div>
-            <p class="text-slate-600 text-base mt-8 border-t border-slate-900 pt-6">© 2024 فاست لينك - جميع الحقوق محفوظة</p>
+            <p class="text-slate-600 text-base mt-8 border-t border-slate-900 pt-6">© 2024 فاست لينك - جميع الحقوق
+                محفوظة</p>
         </div>
     </footer>
 
@@ -197,6 +223,8 @@
             { id: 14, name: "MyHD New", description: "الإصدار الجديد", iconType: "lucide", iconValue: "tv", extraClasses: "text-pink-500", color: "bg-white", textColor: "text-slate-800", downloadUrl: "https://5311.uk/apps/MYHD-LION.apk", img: "./imgs/MYHDN.png" },
             { id: 15, name: "YouTube", description: "منصة الفيديو العالمية", iconType: "lucide", iconValue: "youtube", color: "bg-red-600", textColor: "text-white", downloadUrl: "https://5311.uk/apps/YouTubep.apk" },
             { id: 16, name: "V Ultra", description: "مشغل وسائط متطورًا", iconType: "lucide", iconValue: "vultra", extraClasses: "text-blue-600", color: "bg-white", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/VARULTRA.apk", img: "./imgs/vultra.png" },
+            { id: 17, name: "MyBox TV", description: "للشاشات الذكية", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/myboxtv.apk", img: "./imgs/myboxtv.png" },
+            { id: 18, name: "Fast Link Pro", description: "إدرة كاملة", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/fastLinkpro.apk", img: "./imgs/fastlinkpro.png" },
         ];
 
         var grid = document.getElementById('appsGrid');
@@ -205,12 +233,12 @@
 
         function renderApps(apps) {
             grid.innerHTML = '';
-            
+
             if (apps.length === 0) {
                 noResults.classList.remove('hidden');
                 return;
             }
-            
+
             noResults.classList.add('hidden');
 
             for (var i = 0; i < apps.length; i++) {
@@ -218,9 +246,9 @@
                 var card = document.createElement('div');
                 card.className = "app-card";
                 card.setAttribute('tabindex', '0'); // لجعل البطاقة قابلة للتركيز باستخدام جهاز التحكم
-                
+
                 var textColor = app.textColor || 'text-white';
-                
+
                 // إنشاء محتوى الأيقونة
                 var iconHtml = '';
                 if (app.iconType === 'lucide') {
@@ -233,24 +261,24 @@
                 var visualContent = '';
                 if (app.img) {
                     visualContent = '<img src="' + app.img + '" alt="' + app.name + '" class="max-h-[80%] max-w-[80%] object-contain" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';" />' +
-                                   '<div style="display:none; align-items:center; justify-content:center;">' + iconHtml + '</div>';
+                        '<div style="display:none; align-items:center; justify-content:center;">' + iconHtml + '</div>';
                 } else {
                     visualContent = '<div class="flex items-center justify-center w-full h-full">' + iconHtml + '</div>';
                 }
 
-                card.innerHTML = 
+                card.innerHTML =
                     '<div class="app-icon-area ' + app.color + ' ' + textColor + '">' +
-                        visualContent +
+                    visualContent +
                     '</div>' +
                     '<div class="p-4 flex flex-col items-center text-center bg-slate-800">' +
-                        '<h3 class="font-bold app-title text-lg mb-1">' + app.name + '</h3>' +
-                        '<p class="app-description text-xs md:text-sm text-slate-400 mb-3">' + app.description + '</p>' +
-                        '<a href="' + app.downloadUrl + '" target="_blank" class="w-full app-button bg-red-600 text-white py-3 rounded-xl text-base md:text-lg font-bold hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400">تحميل</a>' +
+                    '<h3 class="font-bold app-title text-lg mb-1">' + app.name + '</h3>' +
+                    '<p class="app-description text-xs md:text-sm text-slate-400 mb-3">' + app.description + '</p>' +
+                    '<a href="' + app.downloadUrl + '" target="_blank" class="w-full app-button bg-red-600 text-white py-3 rounded-xl text-base md:text-lg font-bold hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400">تحميل</a>' +
                     '</div>';
-                
+
                 grid.appendChild(card);
             }
-            
+
             // تحديث أيقونات Lucide
             if (window.lucide) {
                 try {
@@ -262,21 +290,21 @@
         }
 
         // وظيفة البحث
-        searchInput.oninput = function(e) {
+        searchInput.oninput = function (e) {
             var term = e.target.value.toLowerCase().trim();
             var filtered = [];
-            
+
             for (var i = 0; i < appsData.length; i++) {
                 if (appsData[i].name.toLowerCase().indexOf(term) !== -1) {
                     filtered.push(appsData[i]);
                 }
             }
-            
+
             renderApps(filtered);
         };
 
         // دعم أجهزة التحكم عن بعد
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             // التنقل باستخدام أزرار التحكم
             if (e.key === 'Enter' && document.activeElement && document.activeElement.tagName === 'DIV' && document.activeElement.classList.contains('app-card')) {
                 var downloadBtn = document.activeElement.querySelector('a');
@@ -290,7 +318,7 @@
         renderApps(appsData);
 
         // إضافة معالجة للأخطاء للصور
-        window.addEventListener('error', function(e) {
+        window.addEventListener('error', function (e) {
             if (e.target.tagName === 'IMG') {
                 e.target.style.display = 'none';
                 var parent = e.target.parentNode;
@@ -302,4 +330,5 @@
         }, true);
     </script>
 </body>
+
 </html>
