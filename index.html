@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>فاست لينك - Fast Link</title>
+    <link rel="icon" type="image/png" href="./fav.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #0f172a;
+            /* fallback for older browsers */
+        }
+
+        /* تحسين التمرير للتلفزيونات */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dc2626;
+        }
+
+        /* تحسين شبكة التطبيقات للتلفزيون */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        @media (min-width: 1280px) {
+            .apps-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        /* تحسين بطاقات التطبيقات للتلفزيون */
+        .app-card {
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+            background-color: #1e293b;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-card:hover {
+            transform: scale(1.05);
+            border-color: #dc2626;
+            box-shadow: 0 20px 25px -5px rgba(220, 38, 38, 0.2);
+        }
+
+        .app-card:focus {
+            outline: 3px solid #dc2626;
+            outline-offset: 2px;
+        }
+
+        /* تحسين منطقة الأيقونة */
+        .app-icon-area {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* تحسين حجم الخطوط للتلفزيون */
+        @media (min-width: 1280px) {
+            .app-title {
+                font-size: 1.2rem;
+            }
+
+            .app-description {
+                font-size: 0.9rem;
+            }
+
+            .app-button {
+                font-size: 1.1rem;
+                padding: 0.75rem;
+            }
+        }
+
+        /* تحسين شريط البحث */
+        .search-box {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            padding-right: 3.5rem;
+            border-radius: 3rem;
+            background-color: #1e293b;
+            border: 2px solid #475569;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .search-box:focus {
+            border-color: #dc2626;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
+        }
+
+        /* تحسين أزرار التواصل للتلفزيون */
+        .contact-button {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            min-width: 250px;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .contact-button:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-button:focus {
+            outline: 3px solid #dc2626;
+            outline-offset: 2px;
+        }
+
+        /* تحسينات إضافية للتلفزيون */
+        .tv-friendly {
+            -webkit-tap-highlight-color: rgba(220, 38, 38, 0.3);
+        }
+
+        /* دعم أفضل للتباين */
+        .high-contrast-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-900 text-white selection:bg-red-500 selection:text-white tv-friendly">
+
+    <header class="relative bg-gradient-to-b from-slate-800 to-slate-900 shadow-xl border-b border-slate-700">
+        <div class="container mx-auto px-4 py-6 md:py-8 flex flex-col items-center text-center">
+            <div class="mb-4 p-4 bg-red-600 rounded-full shadow-lg shadow-red-600/30">
+                <i data-lucide="tv" class="w-16 h-16 md:w-20 md:h-20 text-white"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-2 tracking-tight high-contrast-text">
+                فاست <span class="text-red-500">لينك</span>
+            </h1>
+            <p class="text-slate-400 text-xl md:text-2xl font-medium mb-6">كافة أنواع الاشتراكات من الوكيل الحصري</p>
+
+            <div class="relative w-full max-w-2xl">
+                <input type="text" id="searchInput" placeholder="ابحث عن التطبيق..." class="search-box" />
+                <i data-lucide="search"
+                    class="absolute right-6 top-1/2 transform -translate-y-1/2 text-slate-400 w-6 h-6"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-12">
+        <div id="appsGrid" class="apps-grid">
+            <!-- سيتم تعبئتها عبر JavaScript -->
+        </div>
+        <div id="noResults" class="hidden text-center py-20 text-slate-500">
+            <i data-lucide="search-x" class="w-20 h-20 mx-auto mb-4 opacity-50"></i>
+            <p class="text-2xl">لا يوجد تطبيق بهذا الاسم</p>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 border-t border-slate-800 pt-12 pb-6">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-slate-200">للتواصل والاشتراك</h2>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="https://wa.me/9665380632622" target="_blank"
+                        class="contact-button bg-green-600 hover:bg-green-700">
+                        <i data-lucide="message-circle" class="w-7 h-7"></i>
+                        <div class="text-right">
+                            <p class="text-xs text-green-100 opacity-80">واتساب</p>
+                            <p class="font-bold text-xl" dir="ltr">+90 538 063 26 22</p>
+                        </div>
+                    </a>
+                    <a href="tel:+905380632622" class="contact-button bg-slate-800 hover:bg-slate-700">
+                        <i data-lucide="phone" class="w-7 h-7 text-red-500"></i>
+                        <div class="text-right">
+                            <p class="text-xs text-slate-400">اتصل بنا</p>
+                            <p class="font-bold text-xl" dir="ltr">+90 538 063 26 22</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <p class="text-slate-600 text-base mt-8 border-t border-slate-900 pt-6">© 2024 فاست لينك - جميع الحقوق
+                محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات التطبيقات
+        var appsData = [
+            // { id: 1, name: "Fast Link TV", description: "تطبيق الوكيل الرسمي", iconType: "lucide", iconValue: "tv", color: "bg-gradient-to-br from-red-900 to-black", downloadUrl: "https://5311.uk/apps/FastLinkTv8.apk", img: "./imgs/fastlinktv.png" },
+            // { id: 2, name: "Look 4K", description: "مشاهدة بجودة عالية", iconType: "lucide", iconValue: "play", color: "bg-gradient-to-br from-blue-600 to-blue-900", downloadUrl: "https://5311.uk/apps/lookpro.apk", img: "./imgs/LOOK4KPRO.png" },
+            // { id: 3, name: "Shamna", description: "شامنا TV", iconType: "text", iconValue: "ش", color: "bg-white text-red-600 border-2 border-red-600", textColor: "text-red-600", downloadUrl: "https://5311.uk/apps/ultra.apk", img: "./imgs/shultrar.png" },
+            // { id: 4, name: "MyBox", description: "ترفيه بلا حدود", iconType: "text", iconValue: "BOX", color: "bg-white text-orange-500", textColor: "text-orange-600", textSize: "text-3xl", downloadUrl: "https://5311.uk/apps/MyboxIptv-mac.apk", img: "./imgs/mybox.png" },
+            // { id: 6, name: "Pablo Red", description: "أفلام ومسلسلات", iconType: "text", iconValue: "P", color: "bg-red-700", downloadUrl: "https://5311.uk/apps/pablo-tv-red_3.1.apk", img: "./imgs/pablo.png" },
+            // { id: 7, name: "Lion Speed", description: "سرعة وثبات", iconType: "lucide", iconValue: "wifi", color: "bg-blue-100 text-blue-800", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/lionspeed.apk", img: "./imgs/lionspeed.png" },
+            // { id: 8, name: "Android TV 33", description: "للشاشات الذكية", iconType: "lucide", iconValue: "smartphone", color: "bg-green-600", downloadUrl: "https://5311.uk/apps/a33tv.apk", img: "./imgs/annd33.png" },
+            // { id: 9, name: "StarSat Plus", description: "ستار سات بلس", iconType: "lucide", iconValue: "globe", color: "bg-slate-800 border border-slate-600", downloadUrl: "https://5311.uk/apps/StarSatPLUS_3.2.apk", img: "./imgs/startsatplus.png" },
+            // { id: 10, name: "Dita 4K", description: "جودة 4K حقيقية", iconType: "lucide", iconValue: "play", extraClasses: "text-yellow-400", color: "bg-white", textColor: "text-slate-900", downloadUrl: "https://5311.uk/apps/dltav_6_2.apk", img: "./imgs/dlta4k.png" },
+            // { id: 11, name: "Blue 4K", description: "الأزرق المميز", iconType: "lucide", iconValue: "tv", extraClasses: "text-blue-600", color: "bg-yellow-400", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/Blue4kpro.apk", img: "./imgs/blue4kpro.png" },
+            // { id: 14, name: "MyHD New", description: "الإصدار الجديد", iconType: "lucide", iconValue: "tv", extraClasses: "text-pink-500", color: "bg-white", textColor: "text-slate-800", downloadUrl: "https://5311.uk/apps/MYHD-LION.apk", img: "./imgs/MYHDN.png" },
+            // { id: 15, name: "YouTube", description: "منصة الفيديو العالمية", iconType: "lucide", iconValue: "youtube", color: "bg-red-600", textColor: "text-white", downloadUrl: "https://5311.uk/apps/YouTubep.apk" },
+            // { id: 16, name: "V Ultra", description: "مشغل وسائط متطورًا", iconType: "lucide", iconValue: "vultra", extraClasses: "text-blue-600", color: "bg-white", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/VARULTRA.apk", img: "./imgs/vultra.png" },
+            // { id: 17, name: "MyBox TV", description: "للشاشات الذكية", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/myboxtv.apk", img: "./imgs/myboxtv.png" },
+            // { id: 18, name: "Fast Link Pro", description: "إدرة كاملة", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/fastLinkpro.apk", img: "./imgs/fastlinkpro.png" },
+            // { id: 19, name: "ZAIN 4K", description: "زين 4K", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/ZAIN4K.apk", img: "./imgs/zain4k.png" },
+            // { id: 20, name: "SmartTube", description: "سمارت تيوب", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "https://5311.uk/apps/smarttube.apk", img: "./imgs/smarttube.png" },
+
+            { id: 1, name: "Fast Link TV", description: "تطبيق الوكيل الرسمي", iconType: "lucide", iconValue: "tv", color: "bg-gradient-to-br from-red-900 to-black", downloadUrl: "./apps/FastLinkTv8.apk", img: "./imgs/fastlinktv.png" },
+            { id: 2, name: "Look 4K", description: "مشاهدة بجودة عالية", iconType: "lucide", iconValue: "play", color: "bg-gradient-to-br from-blue-600 to-blue-900", downloadUrl: "./apps/lookpro.apk", img: "./imgs/LOOK4KPRO.png" },
+            { id: 3, name: "Shamna", description: "شامنا TV", iconType: "text", iconValue: "ش", color: "bg-white text-red-600 border-2 border-red-600", textColor: "text-red-600", downloadUrl: "./apps/ultra.apk", img: "./imgs/shultrar.png" },
+            { id: 4, name: "MyBox", description: "ترفيه بلا حدود", iconType: "text", iconValue: "BOX", color: "bg-white text-orange-500", textColor: "text-orange-600", textSize: "text-3xl", downloadUrl: "./apps/MyboxIptv-mac.apk", img: "./imgs/mybox.png" },
+            { id: 6, name: "Pablo Red", description: "أفلام ومسلسلات", iconType: "text", iconValue: "P", color: "bg-red-700", downloadUrl: "./apps/pablo-tv-red_3.1.apk", img: "./imgs/pablo.png" },
+            { id: 7, name: "Lion Speed", description: "سرعة وثبات", iconType: "lucide", iconValue: "wifi", color: "bg-blue-100 text-blue-800", textColor: "text-blue-800", downloadUrl: "./apps/lionspeed.apk", img: "./imgs/lionspeed.png" },
+            { id: 8, name: "Android TV 33", description: "للشاشات الذكية", iconType: "lucide", iconValue: "smartphone", color: "bg-green-600", downloadUrl: "./apps/a33tv.apk", img: "./imgs/annd33.png" },
+            { id: 9, name: "StarSat Plus", description: "ستار سات بلس", iconType: "lucide", iconValue: "globe", color: "bg-slate-800 border border-slate-600", downloadUrl: "./apps/StarSatPLUS_3.2.apk", img: "./imgs/startsatplus.png" },
+            { id: 10, name: "Dita 4K", description: "جودة 4K حقيقية", iconType: "lucide", iconValue: "play", extraClasses: "text-yellow-400", color: "bg-white", textColor: "text-slate-900", downloadUrl: "./apps/dltav_6_2.apk", img: "./imgs/dlta4k.png" },
+            { id: 11, name: "Blue 4K", description: "الأزرق المميز", iconType: "lucide", iconValue: "tv", extraClasses: "text-blue-600", color: "bg-yellow-400", textColor: "text-blue-800", downloadUrl: "./apps/Blue4kpro.apk", img: "./imgs/blue4kpro.png" },
+            { id: 14, name: "MyHD New", description: "الإصدار الجديد", iconType: "lucide", iconValue: "tv", extraClasses: "text-pink-500", color: "bg-white", textColor: "text-slate-800", downloadUrl: "./apps/MYHD-LION.apk", img: "./imgs/MYHDN.png" },
+            { id: 15, name: "YouTube", description: "منصة الفيديو العالمية", iconType: "lucide", iconValue: "youtube", color: "bg-red-600", textColor: "text-white", downloadUrl: "./apps/YouTubep.apk" },
+            { id: 16, name: "V Ultra", description: "مشغل وسائط متطورًا", iconType: "lucide", iconValue: "vultra", extraClasses: "text-blue-600", color: "bg-white", textColor: "text-blue-800", downloadUrl: "./apps/VARULTRA.apk", img: "./imgs/vultra.png" },
+            { id: 17, name: "MyBox TV", description: "للشاشات الذكية", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/myboxtv.apk", img: "./imgs/myboxtv.png" },
+            { id: 18, name: "Fast Link Pro", description: "إدرة كاملة", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/fastLinkpro.apk", img: "./imgs/fastlinkpro.png" },
+            { id: 19, name: "ZAIN 4K", description: "زين 4K", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/ZAIN4K.apk", img: "./imgs/zain4k.png" },
+            { id: 20, name: "SmartTube", description: "سمارت تيوب", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/smarttube.apk", img: "./imgs/smarttube.png" },
+            { id: 21, name: "Shnew Gold", description: "شامنا الذهبي", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/shnewgold.apk", img: "./imgs/shgold.png" },
+            { id: 22, name: "shamuna", description: "شامنا", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/shamuna.apk", img: "./imgs/shamuna.png" },
+            { id: 23, name: "Red Store", description: "متجر رد ستور", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/redstore-v2.apk", img: "./imgs/redstor.png" },
+            { id: 24, name: "Aptoide TV", description: "متجر برامج", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/aptoidetv.apk", img: "./imgs/aptop.png" },
+            { id: 25, name: "Look Plus", description: "لووك بلس", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/lookplus.apk", img: "./imgs/lookplus.png" },
+            { id: 26, name: "G Plus", description: "جي بلس", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/GplusIPTV_3_3.apk", img: "./imgs/gplus.png" },
+            { id: 27, name: "Xtream", description: "مشغل اكستريم", iconType: "lucide", iconValue: "vultra", color: "bg-slate-800 border border-slate-600", textColor: "text-blue-800", downloadUrl: "./apps/XCIPTVPLAYER.apk", img: "./imgs/xciptv.png" },
+
+        ];
+
+        var grid = document.getElementById('appsGrid');
+        var searchInput = document.getElementById('searchInput');
+        var noResults = document.getElementById('noResults');
+
+        function renderApps(apps) {
+            grid.innerHTML = '';
+
+            if (apps.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            for (var i = 0; i < apps.length; i++) {
+                var app = apps[i];
+                var card = document.createElement('div');
+                card.className = "app-card";
+                card.setAttribute('tabindex', '0'); // لجعل البطاقة قابلة للتركيز باستخدام جهاز التحكم
+
+                var textColor = app.textColor || 'text-white';
+
+                // إنشاء محتوى الأيقونة
+                var iconHtml = '';
+                if (app.iconType === 'lucide') {
+                    iconHtml = '<i data-lucide="' + app.iconValue + '" class="w-16 h-16 ' + (app.extraClasses || '') + '"></i>';
+                } else {
+                    iconHtml = '<span class="font-bold ' + (app.textSize || 'text-4xl') + '">' + app.iconValue + '</span>';
+                }
+
+                // تحديد محتوى منطقة العرض
+                var visualContent = '';
+                if (app.img) {
+                    visualContent = '<img src="' + app.img + '" alt="' + app.name + '" class="max-h-[80%] max-w-[80%] object-contain" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';" />' +
+                        '<div style="display:none; align-items:center; justify-content:center;">' + iconHtml + '</div>';
+                } else {
+                    visualContent = '<div class="flex items-center justify-center w-full h-full">' + iconHtml + '</div>';
+                }
+
+                card.innerHTML =
+                    '<div class="app-icon-area ' + app.color + ' ' + textColor + '">' +
+                    visualContent +
+                    '</div>' +
+                    '<div class="p-4 flex flex-col items-center text-center bg-slate-800">' +
+                    '<h3 class="font-bold app-title text-lg mb-1">' + app.name + '</h3>' +
+                    '<p class="app-description text-xs md:text-sm text-slate-400 mb-3">' + app.description + '</p>' +
+                    '<a href="' + app.downloadUrl + '" target="_blank" class="w-full app-button bg-red-600 text-white py-3 rounded-xl text-base md:text-lg font-bold hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400">تحميل</a>' +
+                    '</div>';
+
+                grid.appendChild(card);
+            }
+
+            // تحديث أيقونات Lucide
+            if (window.lucide) {
+                try {
+                    lucide.createIcons();
+                } catch (e) {
+                    console.log('Lucide icons error:', e);
+                }
+            }
+        }
+
+        // وظيفة البحث
+        searchInput.oninput = function (e) {
+            var term = e.target.value.toLowerCase().trim();
+            var filtered = [];
+
+            for (var i = 0; i < appsData.length; i++) {
+                if (appsData[i].name.toLowerCase().indexOf(term) !== -1) {
+                    filtered.push(appsData[i]);
+                }
+            }
+
+            renderApps(filtered);
+        };
+
+        // دعم أجهزة التحكم عن بعد
+        document.addEventListener('keydown', function (e) {
+            // التنقل باستخدام أزرار التحكم
+            if (e.key === 'Enter' && document.activeElement && document.activeElement.tagName === 'DIV' && document.activeElement.classList.contains('app-card')) {
+                var downloadBtn = document.activeElement.querySelector('a');
+                if (downloadBtn) {
+                    window.open(downloadBtn.href, '_blank');
+                }
+            }
+        });
+
+        // التشغيل الأولي
+        renderApps(appsData);
+
+        // إضافة معالجة للأخطاء للصور
+        window.addEventListener('error', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.target.style.display = 'none';
+                var parent = e.target.parentNode;
+                var fallbackDiv = parent.querySelector('div');
+                if (fallbackDiv) {
+                    fallbackDiv.style.display = 'flex';
+                }
+            }
+        }, true);
+    </script>
+</body>
+
+</html>
