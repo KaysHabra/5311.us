@@ -41,11 +41,12 @@
             border-radius: 20px;
             overflow: hidden;
             border: 4px solid transparent;
-            background: #1e293b;
+            /* background: #1e293b; */
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 1.5 / 1;
             width: 100%;
         }
 
@@ -88,30 +89,58 @@
     </main>
 
     <script>
-        const appsData = [
-            { name: "Fast Link TV", url: "https://5311.uk/apps/FastLinkTv8.apk", img: "./imgs/fastlinktv.png" },
-            { name: "Look 4K", url: "https://5311.uk/apps/lookpro.apk", img: "./imgs/LOOK4KPRO.png" },
-            { name: "Shamna", url: "https://5311.uk/apps/ultra.apk", img: "./imgs/shultrar.png" },
-            { name: "MyBox", url: "https://5311.uk/apps/MyboxIptv-mac.apk", img: "./imgs/mybox.png" },
-            { name: "Pablo Red", url: "https://5311.uk/apps/pablo-tv-red_3.1.apk", img: "./imgs/pablo.png" },
-            { name: "Lion Speed", url: "https://5311.uk/apps/lionspeed.apk", img: "./imgs/lionspeed.png" },
-            { name: "Android TV 33", url: "https://5311.uk/apps/a33tv.apk", img: "./imgs/annd33.png" },
-            { name: "StarSat Plus", url: "https://5311.uk/apps/StarSatPLUS_3.2.apk", img: "./imgs/startsatplus.png" },
-            { name: "Dita 4K", url: "https://5311.uk/apps/dltav_6_2.apk", img: "./imgs/dlta4k.png" },
-            { name: "Blue 4K", url: "https://5311.uk/apps/Blue4kpro.apk", img: "./imgs/blue4kpro.png" },
-            { name: "MyHD New", url: "https://5311.uk/apps/MYHD-LION.apk", img: "./imgs/MYHDN.png" },
-            { name: "V Ultra", url: "https://5311.uk/apps/VARULTRA.apk", img: "./imgs/vultra.png" },
-            { name: "MyBox TV", url: "https://5311.uk/apps/myboxtv.apk", img: "./imgs/myboxtv.png" },
-            { name: "ZAIN 4K", url: "https://5311.uk/apps/ZAIN4K.apk", img: "./imgs/zain4k.png" },
-            { name: "SmartTube", url: "https://5311.uk/apps/smarttube.apk", img: "./imgs/smarttube.png" },
-            { name: "Shnew Gold", url: "https://5311.uk/apps/shnewgold.apk", img: "./imgs/shgold.png" },
-            { name: "Red Store", url: "https://5311.uk/apps/redstore-v2.apk", img: "./imgs/redstor.png" },
-            { name: "Aptoide TV", url: "https://5311.uk/apps/aptoidetv.apk", img: "./imgs/aptop.png" },
-            { name: "Look Plus", url: "https://5311.uk/apps/lookplus.apk", img: "./imgs/lookplus.png" },
-            { name: "G Plus", url: "https://5311.uk/apps/GplusIPTV_3_3.apk", img: "./imgs/gplus.png" },
-            { name: "Xtream", url: "https://5311.uk/apps/XCIPTVPLAYER.apk", img: "./imgs/xciptv.png" }
-        ];
+        // const appsData = [
+        //     { name: "Fast Link TV", url: "https://5311.uk/apps/FastLinkTv8.apk", img: "./imgs/fastlinktv.png" },
+        //     { name: "Look 4K", url: "https://5311.uk/apps/lookpro.apk", img: "./imgs/LOOK4KPRO.png" },
+        //     { name: "Shamna", url: "https://5311.uk/apps/ultra.apk", img: "./imgs/shultrar.png" },
+        //     { name: "MyBox", url: "https://5311.uk/apps/MyboxIptv-mac.apk", img: "./imgs/mybox.png" },
+        //     { name: "Pablo Red", url: "https://5311.uk/apps/pablo-tv-red_3.1.apk", img: "./imgs/pablo.png" },
+        //     { name: "Lion Speed", url: "https://5311.uk/apps/lionspeed.apk", img: "./imgs/lionspeed.png" },
+        //     { name: "Android TV 33", url: "https://5311.uk/apps/a33tv.apk", img: "./imgs/annd33.png" },
+        //     { name: "StarSat Plus", url: "https://5311.uk/apps/StarSatPLUS_3.2.apk", img: "./imgs/startsatplus.png" },
+        //     { name: "Dita 4K", url: "https://5311.uk/apps/dltav_6_2.apk", img: "./imgs/dlta4k.png" },
+        //     { name: "Blue 4K", url: "https://5311.uk/apps/Blue4kpro.apk", img: "./imgs/blue4kpro.png" },
+        //     { name: "MyHD New", url: "https://5311.uk/apps/MYHD-LION.apk", img: "./imgs/MYHDN.png" },
+        //     { name: "V Ultra", url: "https://5311.uk/apps/VARULTRA.apk", img: "./imgs/vultra.png" },
+        //     { name: "MyBox TV", url: "https://5311.uk/apps/myboxtv.apk", img: "./imgs/myboxtv.png" },
+        //     { name: "ZAIN 4K", url: "https://5311.uk/apps/ZAIN4K.apk", img: "./imgs/zain4k.png" },
+        //     { name: "SmartTube", url: "https://5311.uk/apps/smarttube.apk", img: "./imgs/smarttube.png" },
+        //     { name: "Shnew Gold", url: "https://5311.uk/apps/shnewgold.apk", img: "./imgs/shgold.png" },
+        //     { name: "Red Store", url: "https://5311.uk/apps/redstore-v2.apk", img: "./imgs/redstor.png" },
+        //     { name: "Aptoide TV", url: "https://5311.uk/apps/aptoidetv.apk", img: "./imgs/aptop.png" },
+        //     { name: "Look Plus", url: "https://5311.uk/apps/lookplus.apk", img: "./imgs/lookplus.png" },
+        //     { name: "G Plus", url: "https://5311.uk/apps/GplusIPTV_3_3.apk", img: "./imgs/gplus.png" },
+        //     { name: "Xtream", url: "https://5311.uk/apps/XCIPTVPLAYER.apk", img: "./imgs/xciptv.png" }
+        // ];
 
+        const appsData = [
+            { id: 1, name: "Fast Link TV", url: "https://5311.uk/apps/FastLinkTv8.apk", img: "./imgs/fastlinktv.png" },
+            { id: 18, name: "Fast Link Pro", url: "https://5311.uk/apps/fastLinkpro.apk", img: "./imgs/fastlinkpro.png" },
+            { id: 2, name: "Look 4K", url: "https://5311.uk/apps/lookpro.apk", img: "./imgs/LOOK4KPRO.png" },
+            { id: 25, name: "Look Plus", url: "https://5311.uk/apps/lookplus.apk", img: "./imgs/lookplus.png" },
+            { id: 3, name: "Shamna", url: "https://5311.uk/apps/ultra.apk", img: "./imgs/shultrar.png" },
+            { id: 22, name: "shamuna", url: "https://5311.uk/apps/shamna-1.21.apk", img: "./imgs/shamuna.png" },
+            // { id: 22, name: "shamuna", url: "https://5311.uk/apps/shamuna.apk", img: "./imgs/shamuna.png" },
+            { id: 21, name: "Shnew Gold", url: "https://5311.uk/apps/shnewgold.apk", img: "./imgs/shgold.png" },
+            { id: 4, name: "MyBox", url: "https://5311.uk/apps/MyboxIptv-mac.apk", img: "./imgs/mybox.png" },
+            { id: 6, name: "Pablo Red", url: "https://5311.uk/apps/pablo-tv-red_3.1.apk", img: "./imgs/pablo.png" },
+            { id: 7, name: "Lion Speed", url: "https://5311.uk/apps/lionspeed.apk", img: "./imgs/lionspeed.png" },
+            { id: 8, name: "Android TV 33", url: "https://5311.uk/apps/a33tv.apk", img: "./imgs/annd33.png" },
+            { id: 9, name: "StarSat Plus", url: "https://5311.uk/apps/StarSatPLUS_3.2.apk", img: "./imgs/startsatplus.png" },
+            { id: 10, name: "Dita 4K", url: "https://5311.uk/apps/dltav_6_2.apk", img: "./imgs/dlta4k.png" },
+            { id: 11, name: "Blue 4K", url: "https://5311.uk/apps/Blue4kpro.apk", img: "./imgs/blue4kpro.png" },
+            { id: 28, name: "Blue 4K Ultra", url: "https://5311.uk/apps/Blue4KUltra.apk", img: "./imgs/Blue4KUltra.png" },
+            { id: 14, name: "MyHD New", url: "https://5311.uk/apps/MYHD-LION.apk", img: "./imgs/MYHDN.png" },
+            { id: 15, name: "YouTube", url: "https://5311.uk/apps/YouTubep.apk" },
+            { id: 16, name: "V Ultra", url: "https://5311.uk/apps/VARULTRA.apk", img: "./imgs/vultra.png" },
+            { id: 17, name: "MyBox TV", url: "https://5311.uk/apps/myboxtv.apk", img: "./imgs/myboxtv.png" },
+            { id: 19, name: "ZAIN 4K", url: "https://5311.uk/apps/ZAIN4K.apk", img: "./imgs/zain4k.png" },
+            { id: 20, name: "SmartTube", url: "https://5311.uk/apps/smarttube.apk", img: "./imgs/smarttube.png" },
+            { id: 23, name: "Red Store", url: "https://5311.uk/apps/redstore-v2.apk", img: "./imgs/redstor.png" },
+            { id: 24, name: "Aptoide TV", url: "https://5311.uk/apps/aptoidetv.apk", img: "./imgs/aptop.png" },
+            { id: 26, name: "G Plus", url: "https://5311.uk/apps/GplusIPTV_3_3.apk", img: "./imgs/gplus.png" },
+            { id: 27, name: "Xtream", url: "https://5311.uk/apps/XCIPTVPLAYER.apk", img: "./imgs/xciptv.png" },
+        ];
 
         // const appsData = [
         //     { name: "Fast Link TV", url: "./apps/FastLinkTv8.apk", img: "./imgs/fastlinktv.png" },
